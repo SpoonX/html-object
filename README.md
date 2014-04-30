@@ -33,8 +33,9 @@ console.log(list.render());
 
 #### Parameters
 
-* **[tag]**: *string*, The tag for the new element. E.g. "div" or "span".
-* **[attributes]**: *Object*, An object of attributes. E.g. {id:"myId"}
+**[tag]**: *string*, The tag for the new element. E.g. "div" or "span".
+
+**[attributes]**: *Object*, An object of attributes. E.g. {id:"myId"}
 
 ### Methods
 
