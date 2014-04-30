@@ -1,0 +1,23 @@
+{
+  "name": "html-object",
+  "version": "0.0.1",
+  "description": "A simple way to programmatically create HTML structures or individual elements.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SpoonX/html-object"
+  },
+  "keywords": [
+    "html",
+    "object"
+  ],
+  "author": "RWOverdijk",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SpoonX/html-object/issues"
+  },
+  "homepage": "https://github.com/SpoonX/html-object"
+}
