@@ -1,9 +1,11 @@
 /**
  * An HtmlObject that renders to markup.
  *
- * @param {string} [tag]
- * @param {{}} [attributes]
+ * @param {string} [tag] The tag for the new element. E.g. "div" or "span".
+ * @param {Object} [attributes] An object of attributes. E.g. {id:"myId"}
  *
+ * @class HtmlObject
+ * @license MIT
  * @constructor
  */
 function HtmlObject(tag, attributes) {
@@ -58,9 +60,9 @@ HtmlObject.prototype = {
   /**
    * Set if this element is void. This is useful for custom elements that you think should be void (think angularjs).
    *
-   * @param {boolean} isVoid
+   * @param {boolean} isVoid Boolean indicating if this element should, or should not be void.
    *
-   * @returns {HtmlObject}
+   * @returns {HtmlObject} Fluent interface
    */
   setIsVoid : function(isVoid) {
     this.void = !!isVoid;
@@ -71,9 +73,9 @@ HtmlObject.prototype = {
   /**
    * Returns whether or not this element's, or the supplied tag is void.
    *
-   * @param {string} tag
+   * @param {string} [tag] The tag you wish to check is void.
    *
-   * @returns {boolean}
+   * @returns {boolean} If this element, or the supplied tag is considered void.
    */
   isVoidElement : function(tag) {
     if (!tag) {
@@ -86,7 +88,7 @@ HtmlObject.prototype = {
   /**
    * Returns whether or not this element is void
    *
-   * @returns {boolean}
+   * @returns {boolean} If this element is Xhtml
    */
   isXhtml : function() {
     return this.xhtml;
@@ -95,9 +97,9 @@ HtmlObject.prototype = {
   /**
    * Set whether or not this element is Xhtml.
    *
-   * @param {boolean} boolean
+   * @param {boolean} boolean True to set to xhtml, false to set to html x.
    *
-   * @returns {HtmlObject}
+   * @returns {HtmlObject} Fluent interface
    */
   setIsXhtml : function(boolean) {
     this.xhtml = !!boolean;
@@ -108,7 +110,7 @@ HtmlObject.prototype = {
   /**
    * Get this element's tag name
    *
-   * @returns {string}
+   * @returns {string} The tag of this element
    */
   getTag : function() {
     return this.tag;
@@ -117,9 +119,9 @@ HtmlObject.prototype = {
   /**
    * Remove a specific attribute.
    *
-   * @param {string} attribute
+   * @param {string} attribute The name of the attribute to remove.
    *
-   * @returns {HtmlObject}
+   * @returns {HtmlObject} Fluent interface
    */
   removeAttribute : function(attribute) {
     if (typeof this.attributes[attribute] !== 'undefined') {
@@ -132,7 +134,7 @@ HtmlObject.prototype = {
   /**
    * Get this element's attributes.
    *
-   * @returns {{}}
+   * @returns {Object} The element's attributes.
    */
   getAttributes : function() {
     return this.attributes;
@@ -141,9 +143,9 @@ HtmlObject.prototype = {
   /**
    * Get a specific attribute.
    *
-   * @param {string} attribute
+   * @param {string} attribute The name of the attribute you wish to get.
    *
-   * @returns {string}
+   * @returns {string|null} The value of the attribute, or null when not set.
    */
   getAttribute : function(attribute) {
     if (typeof this.attributes[attribute] !== 'undefined') {
@@ -156,8 +158,9 @@ HtmlObject.prototype = {
   /**
    * Set (and overwrite) the attributes.
    *
-   * @param {{}} attributes
-   * @returns {HtmlObject}
+   * @param {Object} attributes An object of attributes to set.
+   *
+   * @returns {HtmlObject} Fluent interface
    */
   setAttributes : function(attributes) {
     this.attributes = attributes;
@@ -168,8 +171,9 @@ HtmlObject.prototype = {
   /**
    * Add multiple attributes.
    *
-   * @param {{}} attributes
-   * @returns {HtmlObject}
+   * @param {Object} attributes An object of attributes to add.
+   *
+   * @returns {HtmlObject} Fluent interface
    */
   addAttributes : function(attributes) {
     Object.getOwnPropertyNames(attributes).forEach(function(attribute) {
@@ -182,10 +186,10 @@ HtmlObject.prototype = {
   /**
    * Set a specific attribute.
    *
-   * @param {string} attribute
-   * @param {string} value
+   * @param {string} attribute The name of the attribute you wish to set.
+   * @param {string} value The value of the attribute.
    *
-   * @returns {HtmlObject}
+   * @returns {HtmlObject} Fluent interface
    */
   setAttribute : function(attribute, value) {
     this.attributes[attribute] = value;
@@ -196,25 +200,48 @@ HtmlObject.prototype = {
   /**
    * Set content placement to "append".
    * this will append the content to the body _after_ the child elements.
+   *
+   * @returns {HtmlObject} Fluent interface
    */
   setAppendContent : function() {
     this.appendPrepend = 'append';
+
+    return this;
   },
 
   /**
    * Set content placement to "prepend".
    * this will prepend the content to the body _before_ the child elements.
+   *
+   * @returns {HtmlObject} Fluent interface
    */
   setPrependContent : function() {
     this.appendPrepend = 'prepend';
+
+    return this;
+  },
+
+  /**
+   * Convenience method. Add an array of multiple classes at once.
+   *
+   * @param {Array} classes The classes to add.
+   *
+   * @returns {HtmlObject} Fluent interface
+   */
+  addClasses : function(classes) {
+    classes.forEach(function(className) {
+      this.addClass(className);
+    });
+
+    return this;
   },
 
   /**
    * Convenience method. Add a class to the element.
    *
-   * @param {string} className
+   * @param {string} className The class to add.
    *
-   * @returns {HtmlObject}
+   * @returns {HtmlObject} Fluent interface
    */
   addClass : function(className) {
     var classes = this.getAttribute('class') || [];
@@ -231,9 +258,9 @@ HtmlObject.prototype = {
   /**
    * Convenience method. Remove a class from the element.
    *
-   * @param {string} className
+   * @param {string} className The class to remove.
    *
-   * @returns {HtmlObject}
+   * @returns {HtmlObject} Fluent interface
    */
   removeClass : function(className) {
     var classes = this.getAttribute('class')
@@ -257,9 +284,9 @@ HtmlObject.prototype = {
   /**
    * Set (and overwrite) content.
    *
-   * @param {string} content
+   * @param {string} content The content to set
    *
-   * @returns {HtmlObject}
+   * @returns {HtmlObject} Fluent interface
    */
   setContent : function(content) {
     this.content = content;
@@ -270,9 +297,9 @@ HtmlObject.prototype = {
   /**
    * Add (append) content.
    *
-   * @param {string} content
+   * @param {string} content The content to append to the existing content.
    *
-   * @returns {HtmlObject}
+   * @returns {HtmlObject} Fluent interface
    */
   appendContent : function(content) {
     this.content += content;
@@ -283,9 +310,9 @@ HtmlObject.prototype = {
   /**
    * Add (prepend) content.
    *
-   * @param {string} content
+   * @param {string} content The content to prepend to the existing content.
    *
-   * @returns {HtmlObject}
+   * @returns {HtmlObject} Fluent interface
    */
   prependContent : function(content) {
     this.content = content + this.content;
@@ -296,7 +323,7 @@ HtmlObject.prototype = {
   /**
    * Clear (remove) the content.
    *
-   * @returns {HtmlObject}
+   * @returns {HtmlObject} Fluent interface
    */
   clearContent : function() {
     this.content = '';
@@ -307,7 +334,7 @@ HtmlObject.prototype = {
   /**
    * Render the attributes to a string.
    *
-   * @returns {string}
+   * @returns {string} A rendered string of attributes.
    */
   renderAttributes : function() {
     var attributesString = ''
@@ -328,10 +355,10 @@ HtmlObject.prototype = {
   /**
    * Convenience method. Set data-something.
    *
-   * @param {string} key
-   * @param {string} value
+   * @param {string} key The key for the data attribute you wish to set
+   * @param {string} value The value to set for key.
    *
-   * @returns {HtmlObject}
+   * @returns {HtmlObject} Fluent interface
    */
   setData : function(key, value) {
     return this.setAttribute('data-' + key, value);
@@ -340,9 +367,9 @@ HtmlObject.prototype = {
   /**
    * Convenience method. Get data-something.
    *
-   * @param {string} key
+   * @param {string} key The key for the data attribute you wish to get.
    *
-   * @returns {string}
+   * @returns {string} The value of the data attribute.
    */
   getData : function(key) {
     return this.getAttribute('data-' + key);
@@ -351,10 +378,10 @@ HtmlObject.prototype = {
   /**
    * Convenience method. jQuery-like syntax for data.
    *
-   * @param {string} key
-   * @param {string} [value]
+   * @param {string} key The key for which you wish to get or set the value.
+   * @param {string} [value] The value to set for key.
    *
-   * @returns {HtmlObject|string}
+   * @returns {HtmlObject|string} Fluent interface, or data value on get.
    */
   data : function(key, value) {
     if (typeof value === 'undefined') {
@@ -367,9 +394,9 @@ HtmlObject.prototype = {
   /**
    * Convenience method. Remove data-something.
    *
-   * @param {string} key
+   * @param {string} key Remove the data-something value.
    *
-   * @returns {HtmlObject}
+   * @returns {HtmlObject} Fluent interface
    */
   removeData : function(key) {
     return this.removeAttribute('data-' + key);
@@ -378,7 +405,7 @@ HtmlObject.prototype = {
   /**
    * Render the children for this element.
    *
-   * @returns {string}
+   * @returns {string} The rendered string.
    */
   renderChildren : function() {
     var childString = '';
@@ -393,9 +420,9 @@ HtmlObject.prototype = {
   /**
    * Add a child to this element
    *
-   * @param {HtmlObject} child
+   * @param {HtmlObject} child The child instance.
    *
-   * @returns {HtmlObject}
+   * @returns {HtmlObject} Fluent interface
    */
   addChild : function(child) {
     this.children.push(child);
@@ -406,10 +433,10 @@ HtmlObject.prototype = {
   /**
    * Spawn a new child for this element.
    *
-   * @param {string} [tag]
-   * @param {{}} [attributes]
+   * @param {string} [tag] The tag for the child element.
+   * @param {Object} [attributes] An object of properties for the child element.
    *
-   * @returns {HtmlObject} The child element
+   * @returns {HtmlObject} Fluent interface} The child element
    */
   spawnChild : function(tag, attributes) {
     var child = new HtmlObject(tag, attributes);
@@ -424,7 +451,7 @@ HtmlObject.prototype = {
   /**
    * Render this element.
    *
-   * @returns {string}
+   * @returns {string} The rendered output.
    */
   render : function() {
     var body = ''
