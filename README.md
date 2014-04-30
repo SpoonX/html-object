@@ -26,34 +26,33 @@ console.log(list.render());
 
 ## Interface
 
-HtmlObject
-----------
+### Class HtmlObject
 
-### HtmlObject(tag, attributes)
+#### HtmlObject(tag, attributes)
 > An HtmlObject that renders to markup.
 
 #### Parameters
 
-* **[tag]**: *string*, The tag for the new element. E.g. "div" or "span".
-* **[attributes]**: *Object*, An object of attributes. E.g. {id:"myId"}
+**[tag]**: *string*, The tag for the new element. E.g. "div" or "span".
 
-Methods
---------
+**[attributes]**: *Object*, An object of attributes. E.g. {id:"myId"}
 
-### setIsVoid(isVoid)
+### Methods
+
+#### setIsVoid(isVoid)
 > Set if this element is void. This is useful for custom elements that you think should be void (think angularjs).
 
-#### Parameters
+##### Parameters
 
 **isVoid**:  *boolean*,  Boolean indicating if this element should, or should not be void.
 
-#### Returns
+##### Returns
 
 *HtmlObject*,  Fluent interface
 
 ***
 
-### isVoidElement([tag])
+#### isVoidElement([tag])
 > Returns whether or not this element's, or the supplied tag is void.
 
 #### Parameters
@@ -66,7 +65,7 @@ Methods
 
 ***
 
-### isXhtml()
+#### isXhtml()
 > Returns whether or not this element is void
 
 
@@ -77,7 +76,7 @@ Methods
 
 ***
 
-### setIsXhtml(boolean)
+#### setIsXhtml(boolean)
 > Set whether or not this element is Xhtml.
 
 
@@ -93,7 +92,7 @@ Methods
 
 ***
 
-### getTag()
+#### getTag()
 > Get this element's tag name
 
 
@@ -104,7 +103,7 @@ Methods
 
 ***
 
-### removeAttribute(attribute)
+#### removeAttribute(attribute)
 > Remove a specific attribute.
 
 
@@ -120,7 +119,7 @@ Methods
 
 ***
 
-### getAttributes()
+#### getAttributes()
 > Get this element's attributes.
 
 
@@ -131,7 +130,7 @@ Methods
 
 ***
 
-### getAttribute(attribute)
+#### getAttribute(attribute)
 > Get a specific attribute.
 
 
@@ -147,7 +146,7 @@ Methods
 
 ***
 
-### setAttributes(attributes)
+#### setAttributes(attributes)
 > Set (and overwrite) the attributes.
 
 
@@ -163,7 +162,7 @@ Methods
 
 ***
 
-### addAttributes(attributes)
+#### addAttributes(attributes)
 > Add multiple attributes.
 
 
@@ -179,7 +178,7 @@ Methods
 
 ***
 
-### setAttribute(attribute, value)
+#### setAttribute(attribute, value)
 > Set a specific attribute.
 
 
@@ -197,7 +196,7 @@ Methods
 
 ***
 
-### setAppendContent()
+#### setAppendContent()
 > Set content placement to "append".
 this will append the content to the body _after_ the child elements.
 
@@ -209,7 +208,7 @@ this will append the content to the body _after_ the child elements.
 
 ***
 
-### setPrependContent()
+#### setPrependContent()
 > Set content placement to "prepend".
 this will prepend the content to the body _before_ the child elements.
 
@@ -221,7 +220,7 @@ this will prepend the content to the body _before_ the child elements.
 
 ***
 
-### addClasses(classes)
+#### addClasses(classes)
 > Convenience method. Add an array of multiple classes at once.
 
 
@@ -237,7 +236,7 @@ this will prepend the content to the body _before_ the child elements.
 
 ***
 
-### addClass(className)
+#### addClass(className)
 > Convenience method. Add a class to the element.
 
 
@@ -253,7 +252,7 @@ this will prepend the content to the body _before_ the child elements.
 
 ***
 
-### removeClass(className)
+#### removeClass(className)
 > Convenience method. Remove a class from the element.
 
 
@@ -269,7 +268,7 @@ this will prepend the content to the body _before_ the child elements.
 
 ***
 
-### setContent(content)
+#### setContent(content)
 Set (and overwrite) content.
 
 
@@ -285,7 +284,7 @@ Set (and overwrite) content.
 
 ***
 
-### appendContent(content)
+#### appendContent(content)
 > Add (append) content.
 
 
@@ -301,7 +300,7 @@ Set (and overwrite) content.
 
 ***
 
-### prependContent(content)
+#### prependContent(content)
 > Add (prepend) content.
 
 
@@ -317,7 +316,7 @@ Set (and overwrite) content.
 
 ***
 
-### clearContent()
+#### clearContent()
 > Clear (remove) the content.
 
 
@@ -328,7 +327,7 @@ Set (and overwrite) content.
 
 ***
 
-### renderAttributes()
+#### renderAttributes()
 > Render the attributes to a string.
 
 
@@ -339,7 +338,7 @@ Set (and overwrite) content.
 
 ***
 
-### setData(key, value)
+#### setData(key, value)
 > Convenience method. Set data-something.
 
 
@@ -357,7 +356,7 @@ Set (and overwrite) content.
 
 ***
 
-### getData(key)
+#### getData(key)
 > Convenience method. Get data-something.
 
 
@@ -373,7 +372,7 @@ Set (and overwrite) content.
 
 ***
 
-### data(key, [value])
+#### data(key, [value])
 > Convenience method. jQuery-like syntax for data.
 
 
@@ -391,7 +390,7 @@ Set (and overwrite) content.
 
 ***
 
-### removeData(key)
+#### removeData(key)
 > Convenience method. Remove data-something.
 
 
@@ -407,7 +406,7 @@ Set (and overwrite) content.
 
 ***
 
-### renderChildren()
+#### renderChildren()
 > Render the children for this element.
 
 
@@ -418,7 +417,7 @@ Set (and overwrite) content.
 
 ***
 
-### addChild(child)
+#### addChild(child)
 > Add a child to this element
 
 
@@ -434,7 +433,7 @@ Set (and overwrite) content.
 
 ***
 
-### spawnChild([tag], [attributes])
+#### spawnChild([tag], [attributes])
 > Spawn a new child for this element.
 
 #### Parameters
@@ -448,7 +447,7 @@ Set (and overwrite) content.
 *HtmlObject*,  Fluent interface} The child element
 
 ***
-### render()
+#### render()
 > Render this element.
 
 
