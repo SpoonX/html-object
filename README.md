@@ -29,7 +29,7 @@ console.log(list.render());
 ### Class HtmlObject
 
 #### HtmlObject(tag, attributes)
-> An HtmlObject that renders to markup.
+*An HtmlObject that renders to markup.*
 
 #### Parameters
 
@@ -40,7 +40,7 @@ console.log(list.render());
 ### Methods
 
 #### setIsVoid(isVoid)
-> Set if this element is void. This is useful for custom elements that you think should be void (think angularjs).
+*Set if this element is void. This is useful for custom elements that you think should be void (think angularjs).*
 
 ##### Parameters
 
@@ -53,7 +53,7 @@ console.log(list.render());
 ***
 
 #### isVoidElement([tag])
-> Returns whether or not this element's, or the supplied tag is void.
+*Returns whether or not this element's, or the supplied tag is void.*
 
 #### Parameters
 
@@ -66,8 +66,7 @@ console.log(list.render());
 ***
 
 #### isXhtml()
-> Returns whether or not this element is void
-
+*Returns whether or not this element is void*
 
 
 #### Returns
@@ -77,9 +76,7 @@ console.log(list.render());
 ***
 
 #### setIsXhtml(boolean)
-> Set whether or not this element is Xhtml.
-
-
+*Set whether or not this element is Xhtml.*
 
 
 #### Parameters
@@ -93,8 +90,7 @@ console.log(list.render());
 ***
 
 #### getTag()
-> Get this element's tag name
-
+*Get this element's tag name*
 
 
 #### Returns
@@ -104,9 +100,7 @@ console.log(list.render());
 ***
 
 #### removeAttribute(attribute)
-> Remove a specific attribute.
-
-
+*Remove a specific attribute.*
 
 
 #### Parameters
@@ -120,8 +114,7 @@ console.log(list.render());
 ***
 
 #### getAttributes()
-> Get this element's attributes.
-
+*Get this element's attributes.*
 
 
 #### Returns
@@ -131,9 +124,7 @@ console.log(list.render());
 ***
 
 #### getAttribute(attribute)
-> Get a specific attribute.
-
-
+*Get a specific attribute.*
 
 
 #### Parameters
@@ -147,9 +138,7 @@ console.log(list.render());
 ***
 
 #### setAttributes(attributes)
-> Set (and overwrite) the attributes.
-
-
+*Set (and overwrite) the attributes.*
 
 
 #### Parameters
@@ -163,9 +152,7 @@ console.log(list.render());
 ***
 
 #### addAttributes(attributes)
-> Add multiple attributes.
-
-
+*Add multiple attributes.*
 
 
 #### Parameters
@@ -179,9 +166,7 @@ console.log(list.render());
 ***
 
 #### setAttribute(attribute, value)
-> Set a specific attribute.
-
-
+*Set a specific attribute.*
 
 
 #### Parameters
@@ -197,7 +182,7 @@ console.log(list.render());
 ***
 
 #### setAppendContent()
-> Set content placement to "append".
+*Set content placement to "append".*
 this will append the content to the body _after_ the child elements.
 
 
@@ -209,7 +194,7 @@ this will append the content to the body _after_ the child elements.
 ***
 
 #### setPrependContent()
-> Set content placement to "prepend".
+*Set content placement to "prepend".*
 this will prepend the content to the body _before_ the child elements.
 
 
@@ -221,7 +206,7 @@ this will prepend the content to the body _before_ the child elements.
 ***
 
 #### addClasses(classes)
-> Convenience method. Add an array of multiple classes at once.
+*Convenience method. Add an array of multiple classes at once.*
 
 
 
@@ -237,7 +222,7 @@ this will prepend the content to the body _before_ the child elements.
 ***
 
 #### addClass(className)
-> Convenience method. Add a class to the element.
+*Convenience method. Add a class to the element.*
 
 
 
@@ -253,7 +238,7 @@ this will prepend the content to the body _before_ the child elements.
 ***
 
 #### removeClass(className)
-> Convenience method. Remove a class from the element.
+*Convenience method. Remove a class from the element.*
 
 
 
@@ -285,7 +270,7 @@ Set (and overwrite) content.
 ***
 
 #### appendContent(content)
-> Add (append) content.
+*Add (append) content.*
 
 
 
@@ -301,7 +286,7 @@ Set (and overwrite) content.
 ***
 
 #### prependContent(content)
-> Add (prepend) content.
+*Add (prepend) content.*
 
 
 
@@ -317,7 +302,7 @@ Set (and overwrite) content.
 ***
 
 #### clearContent()
-> Clear (remove) the content.
+*Clear (remove) the content.*
 
 
 
@@ -328,7 +313,7 @@ Set (and overwrite) content.
 ***
 
 #### renderAttributes()
-> Render the attributes to a string.
+*Render the attributes to a string.*
 
 
 
@@ -339,7 +324,7 @@ Set (and overwrite) content.
 ***
 
 #### setData(key, value)
-> Convenience method. Set data-something.
+*Convenience method. Set data-something.*
 
 
 
@@ -357,7 +342,7 @@ Set (and overwrite) content.
 ***
 
 #### getData(key)
-> Convenience method. Get data-something.
+*Convenience method. Get data-something.*
 
 
 
@@ -373,7 +358,7 @@ Set (and overwrite) content.
 ***
 
 #### data(key, [value])
-> Convenience method. jQuery-like syntax for data.
+*Convenience method. jQuery-like syntax for data.*
 
 
 
@@ -391,7 +376,7 @@ Set (and overwrite) content.
 ***
 
 #### removeData(key)
-> Convenience method. Remove data-something.
+*Convenience method. Remove data-something.*
 
 
 
@@ -407,7 +392,7 @@ Set (and overwrite) content.
 ***
 
 #### renderChildren()
-> Render the children for this element.
+*Render the children for this element.*
 
 
 
@@ -418,7 +403,7 @@ Set (and overwrite) content.
 ***
 
 #### addChild(child)
-> Add a child to this element
+*Add a child to this element*
 
 
 
@@ -434,7 +419,7 @@ Set (and overwrite) content.
 ***
 
 #### spawnChild([tag], [attributes])
-> Spawn a new child for this element.
+*Spawn a new child for this element.*
 
 #### Parameters
 
@@ -448,7 +433,7 @@ Set (and overwrite) content.
 
 ***
 #### render()
-> Render this element.
+*Render this element.*
 
 
 #### Returns
