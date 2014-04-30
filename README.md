@@ -26,7 +26,7 @@ console.log(list.render());
 
 ## Interface
 
-### HtmlObject
+### Class HtmlObject
 
 #### HtmlObject(tag, attributes)
 > An HtmlObject that renders to markup.
