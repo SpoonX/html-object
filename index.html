@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <title>Html-object by SpoonX</title>
+  </head>
+
+  <body>
+    <div id="container">
+      <div class="inner">
+
+        <header>
+          <h1>Html-object</h1>
+          <h2>A simple way to programmatically create HTML structures or individual elements.</h2>
+        </header>
+
+        <section id="downloads" class="clearfix">
+          <a href="https://github.com/SpoonX/html-object/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
+          <a href="https://github.com/SpoonX/html-object/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
+          <a href="https://github.com/SpoonX/html-object" id="view-on-github" class="button"><span>View on GitHub</span></a>
+        </section>
+
+        <hr>
+
+        <section id="main_content">
+          <h2>
+<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<p>Using npm, simply run:</p>
+
+<p><code>npm install html-object --save</code></p>
+
+<h2>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<p>Usage is pretty straight-forward. Simply instantiate a new <code>HtmlObject</code> and start creating awesome-sauce.</p>
+
+<div class="highlight highlight-js"><pre><span class="kd">var</span> <span class="nx">HtmlObject</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'html-object'</span><span class="p">)</span> <span class="c1">// Require HtmlObject</span>
+  <span class="p">,</span> <span class="nx">list</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">HtmlObject</span><span class="p">(</span><span class="s1">'ul'</span><span class="p">);</span>        <span class="c1">// Create a new instance.</span>
+
+<span class="c1">// Add some children</span>
+<span class="nx">list</span><span class="p">.</span><span class="nx">spawnChild</span><span class="p">(</span><span class="s1">'li'</span><span class="p">).</span><span class="nx">addClass</span><span class="p">(</span><span class="s1">'list-item'</span><span class="p">).</span><span class="nx">setContent</span><span class="p">(</span><span class="s1">'I am an item!'</span><span class="p">);</span>
+<span class="nx">list</span><span class="p">.</span><span class="nx">spawnChild</span><span class="p">(</span><span class="s1">'li'</span><span class="p">).</span><span class="nx">addClass</span><span class="p">(</span><span class="s1">'list-item'</span><span class="p">).</span><span class="nx">setContent</span><span class="p">(</span><span class="s1">'And so am I!'</span><span class="p">);</span>
+<span class="nx">list</span><span class="p">.</span><span class="nx">spawnChild</span><span class="p">(</span><span class="s1">'li'</span><span class="p">).</span><span class="nx">addClass</span><span class="p">(</span><span class="s1">'list-item'</span><span class="p">).</span><span class="nx">setContent</span><span class="p">(</span><span class="s1">'Look at us being sassy!'</span><span class="p">);</span>
+
+<span class="c1">// Now let's get some output.</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">list</span><span class="p">.</span><span class="nx">render</span><span class="p">());</span>
+
+<span class="c1">// &lt;ul&gt;&lt;li class="list-item"&gt;I am an item!&lt;/li&gt;&lt;li class="list-item"&gt;And so am I!&lt;/li&gt;&lt;li class="list-item"&gt;Look at us being sassy!&lt;/li&gt;&lt;/ul&gt;</span>
+</pre></div>
+
+<h2>
+<a name="interface" class="anchor" href="#interface"><span class="octicon octicon-link"></span></a>Interface</h2>
+
+<h3>
+<a name="class-htmlobject" class="anchor" href="#class-htmlobject"><span class="octicon octicon-link"></span></a>Class HtmlObject</h3>
+
+<h4>
+<a name="htmlobjecttag-attributes" class="anchor" href="#htmlobjecttag-attributes"><span class="octicon octicon-link"></span></a>HtmlObject(tag, attributes)</h4>
+
+<p><em>An HtmlObject that renders to markup.</em></p>
+
+<h4>
+<a name="parameters" class="anchor" href="#parameters"><span class="octicon octicon-link"></span></a>Parameters</h4>
+
+<p><strong>[tag]</strong>: <em>string</em>, The tag for the new element. E.g. "div" or "span".</p>
+
+<p><strong>[attributes]</strong>: <em>Object</em>, An object of attributes. E.g. {id:"myId"}</p>
+
+<h3>
+<a name="methods" class="anchor" href="#methods"><span class="octicon octicon-link"></span></a>Methods</h3>
+
+<h4>
+<a name="setisvoidisvoid" class="anchor" href="#setisvoidisvoid"><span class="octicon octicon-link"></span></a>setIsVoid(isVoid)</h4>
+
+<p><em>Set if this element is void. This is useful for custom elements that you think should be void (think angularjs).</em></p>
+
+<h5>
+<a name="parameters-1" class="anchor" href="#parameters-1"><span class="octicon octicon-link"></span></a>Parameters</h5>
+
+<p><strong>isVoid</strong>:  <em>boolean</em>,  Boolean indicating if this element should, or should not be void.</p>
+
+<h5>
+<a name="returns" class="anchor" href="#returns"><span class="octicon octicon-link"></span></a>Returns</h5>
+
+<p><em>HtmlObject</em>,  Fluent interface</p>
+
+<hr><h4>
+<a name="isvoidelementtag" class="anchor" href="#isvoidelementtag"><span class="octicon octicon-link"></span></a>isVoidElement([tag])</h4>
+
+<p><em>Returns whether or not this element's, or the supplied tag is void.</em></p>
+
+<h4>
+<a name="parameters-2" class="anchor" href="#parameters-2"><span class="octicon octicon-link"></span></a>Parameters</h4>
+
+<p><strong>[tag]</strong>:  <em>string</em>,  The tag you wish to check is void.</p>
+
+<h4>
+<a name="returns-1" class="anchor" href="#returns-1"><span class="octicon octicon-link"></span></a>Returns</h4>
+
+<p><em>boolean</em>,  If this element, or the supplied tag is considered void.</p>
+
+<hr><h4>
+<a name="isxhtml" class="anchor" href="#isxhtml"><span class="octicon octicon-link"></span></a>isXhtml()</h4>
+
+<p><em>Returns whether or not this element is void</em></p>
+
+<h4>
+<a name="returns-2" class="anchor" href="#returns-2"><span class="octicon octicon-link"></span></a>Returns</h4>
+
+<p><em>boolean</em>,  If this element is Xhtml</p>
+
+<hr><h4>
+<a name="setisxhtmlboolean" class="anchor" href="#setisxhtmlboolean"><span class="octicon octicon-link"></span></a>setIsXhtml(boolean)</h4>
+
+<p><em>Set whether or not this element is Xhtml.</em></p>
+
+<h4>
+<a name="parameters-3" class="anchor" href="#parameters-3"><span class="octicon octicon-link"></span></a>Parameters</h4>
+
+<p><strong>boolean</strong>:  <em>boolean</em>,  True to set to xhtml, false to set to html x.</p>
+
+<h4>
+<a name="returns-3" class="anchor" href="#returns-3"><span class="octicon octicon-link"></span></a>Returns</h4>
+
+<p><em>HtmlObject</em>,  Fluent interface</p>
+
+<hr><h4>
+<a name="gettag" class="anchor" href="#gettag"><span class="octicon octicon-link"></span></a>getTag()</h4>
+
+<p><em>Get this element's tag name</em></p>
+
+<h4>
+<a name="returns-4" class="anchor" href="#returns-4"><span class="octicon octicon-link"></span></a>Returns</h4>
+
+<p><em>string</em>,  The tag of this element</p>
+
+<hr><h4>
+<a name="removeattributeattribute" class="anchor" href="#removeattributeattribute"><span class="octicon octicon-link"></span></a>removeAttribute(attribute)</h4>
+
+<p><em>Remove a specific attribute.</em></p>
+
+<h4>
+<a name="parameters-4" class="anchor" href="#parameters-4"><span class="octicon octicon-link"></span></a>Parameters</h4>
+
+<p><strong>attribute</strong>:  <em>string</em>,  The name of the attribute to remove.</p>
+
+<h4>
+<a name="returns-5" class="anchor" href="#returns-5"><span class="octicon octicon-link"></span></a>Returns</h4>
+
+<p><em>HtmlObject</em>,  Fluent interface</p>
+
+<hr><h4>
+<a name="getattributes" class="anchor" href="#getattributes"><span class="octicon octicon-link"></span></a>getAttributes()</h4>
+
+<p><em>Get this element's attributes.</em></p>
+
+<h4>
+<a name="returns-6" class="anchor" href="#returns-6"><span class="octicon octicon-link"></span></a>Returns</h4>
+
+<p><em>Object</em>,  The element's attributes.</p>
+
+<hr><h4>
+<a name="getattributeattribute" class="anchor" href="#getattributeattribute"><span class="octicon octicon-link"></span></a>getAttribute(attribute)</h4>
+
+<p><em>Get a specific attribute.</em></p>
+
+<h4>
+<a name="parameters-5" class="anchor" href="#parameters-5"><span class="octicon octicon-link"></span></a>Parameters</h4>
+
+<p><strong>attribute</strong>:  <em>string</em>,  The name of the attribute you wish to get.</p>
+
+<h4>
+<a name="returns-7" class="anchor" href="#returns-7"><span class="octicon octicon-link"></span></a>Returns</h4>
+
+<p><em>string|null</em>,  The value of the attribute, or null when not set.</p>
+
+<hr><h4>
+<a name="setattributesattributes" class="anchor" href="#setattributesattributes"><span class="octicon octicon-link"></span></a>setAttributes(attributes)</h4>
+
+<p><em>Set (and overwrite) the attributes.</em></p>
+
+<h4>
+<a name="parameters-6" class="anchor" href="#parameters-6"><span class="octicon octicon-link"></span></a>Parameters</h4>
+
+<p><strong>attributes</strong>:  <em>Object</em>,  An object of attributes to set.</p>
+
+<h4>
+<a name="returns-8" class="anchor" href="#returns-8"><span class="octicon octicon-link"></span></a>Returns</h4>
+
+<p><em>HtmlObject</em>,  Fluent interface</p>
+
+<hr><h4>
+<a name="addattributesattributes" class="anchor" href="#addattributesattributes"><span class="octicon octicon-link"></span></a>addAttributes(attributes)</h4>
+
+<p><em>Add multiple attributes.</em></p>
+
+<h4>
+<a name="parameters-7" class="anchor" href="#parameters-7"><span class="octicon octicon-link"></span></a>Parameters</h4>
+
+<p><strong>attributes</strong>:  <em>Object</em>,  An object of attributes to add.</p>
+
+<h4>
+<a name="returns-9" class="anchor" href="#returns-9"><span class="octicon octicon-link"></span></a>Returns</h4>
+
+<p><em>HtmlObject</em>,  Fluent interface</p>
+
+<hr><h4>
+<a name="setattributeattribute-value" class="anchor" href="#setattributeattribute-value"><span class="octicon octicon-link"></span></a>setAttribute(attribute, value)</h4>
+
+<p><em>Set a specific attribute.</em></p>
+
+<h4>
+<a name="parameters-8" class="anchor" href="#parameters-8"><span class="octicon octicon-link"></span></a>Parameters</h4>
+
+<p><strong>attribute</strong>:  <em>string</em>,  The name of the attribute you wish to set.</p>
+
+<p><strong>value</strong>:  <em>string</em>,  The value of the attribute.</p>
+
+<h4>
+<a name="returns-10" class="anchor" href="#returns-10"><span class="octicon octicon-link"></span></a>Returns</h4>
+
+<p><em>HtmlObject</em>,  Fluent interface</p>
+
+<hr><h4>
+<a name="setappendcontent" class="anchor" href="#setappendcontent"><span class="octicon octicon-link"></span></a>setAppendContent()</h4>
+
+<p><em>Set content placement to "append".</em>
+this will append the content to the body <em>after</em> the child elements.</p>
+
+<h4>
+<a name="returns-11" class="anchor" href="#returns-11"><span class="octicon octicon-link"></span></a>Returns</h4>
+
+<p><em>HtmlObject</em>,  Fluent interface</p>
+
+<hr><h4>
+<a name="setprependcontent" class="anchor" href="#setprependcontent"><span class="octicon octicon-link"></span></a>setPrependContent()</h4>
+
+<p><em>Set content placement to "prepend".</em>
+this will prepend the content to the body <em>before</em> the child elements.</p>
+
+<h4>
+<a name="returns-12" class="anchor" href="#returns-12"><span class="octicon octicon-link"></span></a>Returns</h4>
+
+<p><em>HtmlObject</em>,  Fluent interface</p>
+
+<hr><h4>
+<a name="addclassesclasses" class="anchor" href="#addclassesclasses"><span class="octicon octicon-link"></span></a>addClasses(classes)</h4>
+
+<p><em>Convenience method. Add an array of multiple classes at once.</em></p>
+
+<h4>
+<a name="parameters-9" class="anchor" href="#parameters-9"><span class="octicon octicon-link"></span></a>Parameters</h4>
+
+<p><strong>classes</strong>:  <em>Array</em>,  The classes to add.</p>
+
+<h4>
+<a name="returns-13" class="anchor" href="#returns-13"><span class="octicon octicon-link"></span></a>Returns</h4>
+
+<p><em>HtmlObject</em>,  Fluent interface</p>
+
+<hr><h4>
+<a name="addclassclassname" class="anchor" href="#addclassclassname"><span class="octicon octicon-link"></span></a>addClass(className)</h4>
+
+<p><em>Convenience method. Add a class to the element.</em></p>
+
+<h4>
+<a name="parameters-10" class="anchor" href="#parameters-10"><span class="octicon octicon-link"></span></a>Parameters</h4>
+
+<p><strong>className</strong>:  <em>string</em>,  The class to add.</p>
+
+<h4>
+<a name="returns-14" class="anchor" href="#returns-14"><span class="octicon octicon-link"></span></a>Returns</h4>
+
+<p><em>HtmlObject</em>,  Fluent interface</p>
+
+<hr><h4>
+<a name="removeclassclassname" class="anchor" href="#removeclassclassname"><span class="octicon octicon-link"></span></a>removeClass(className)</h4>
+
+<p><em>Convenience method. Remove a class from the element.</em></p>
+
+<h4>
+<a name="parameters-11" class="anchor" href="#parameters-11"><span class="octicon octicon-link"></span></a>Parameters</h4>
+
+<p><strong>className</strong>:  <em>string</em>,  The class to remove.</p>
+
+<h4>
+<a name="returns-15" class="anchor" href="#returns-15"><span class="octicon octicon-link"></span></a>Returns</h4>
+
+<p><em>HtmlObject</em>,  Fluent interface</p>
+
+<hr><h4>
+<a name="setcontentcontent" class="anchor" href="#setcontentcontent"><span class="octicon octicon-link"></span></a>setContent(content)</h4>
+
+<p>Set (and overwrite) content.</p>
+
+<h4>
+<a name="parameters-12" class="anchor" href="#parameters-12"><span class="octicon octicon-link"></span></a>Parameters</h4>
+
+<p><strong>content</strong>:  <em>string</em>,  The content to set</p>
+
+<h4>
+<a name="returns-16" class="anchor" href="#returns-16"><span class="octicon octicon-link"></span></a>Returns</h4>
+
+<p><em>HtmlObject</em>,  Fluent interface</p>
+
+<hr><h4>
+<a name="appendcontentcontent" class="anchor" href="#appendcontentcontent"><span class="octicon octicon-link"></span></a>appendContent(content)</h4>
+
+<p><em>Add (append) content.</em></p>
+
+<h4>
+<a name="parameters-13" class="anchor" href="#parameters-13"><span class="octicon octicon-link"></span></a>Parameters</h4>
+
+<p><strong>content</strong>:  <em>string</em>,  The content to append to the existing content.</p>
+
+<h4>
+<a name="returns-17" class="anchor" href="#returns-17"><span class="octicon octicon-link"></span></a>Returns</h4>
+
+<p><em>HtmlObject</em>,  Fluent interface</p>
+
+<hr><h4>
+<a name="prependcontentcontent" class="anchor" href="#prependcontentcontent"><span class="octicon octicon-link"></span></a>prependContent(content)</h4>
+
+<p><em>Add (prepend) content.</em></p>
+
+<h4>
+<a name="parameters-14" class="anchor" href="#parameters-14"><span class="octicon octicon-link"></span></a>Parameters</h4>
+
+<p><strong>content</strong>:  <em>string</em>,  The content to prepend to the existing content.</p>
+
+<h4>
+<a name="returns-18" class="anchor" href="#returns-18"><span class="octicon octicon-link"></span></a>Returns</h4>
+
+<p><em>HtmlObject</em>,  Fluent interface</p>
+
+<hr><h4>
+<a name="clearcontent" class="anchor" href="#clearcontent"><span class="octicon octicon-link"></span></a>clearContent()</h4>
+
+<p><em>Clear (remove) the content.</em></p>
+
+<h4>
+<a name="returns-19" class="anchor" href="#returns-19"><span class="octicon octicon-link"></span></a>Returns</h4>
+
+<p><em>HtmlObject</em>,  Fluent interface</p>
+
+<hr><h4>
+<a name="renderattributes" class="anchor" href="#renderattributes"><span class="octicon octicon-link"></span></a>renderAttributes()</h4>
+
+<p><em>Render the attributes to a string.</em></p>
+
+<h4>
+<a name="returns-20" class="anchor" href="#returns-20"><span class="octicon octicon-link"></span></a>Returns</h4>
+
+<p><em>string</em>,  A rendered string of attributes.</p>
+
+<hr><h4>
+<a name="setdatakey-value" class="anchor" href="#setdatakey-value"><span class="octicon octicon-link"></span></a>setData(key, value)</h4>
+
+<p><em>Convenience method. Set data-something.</em></p>
+
+<h4>
+<a name="parameters-15" class="anchor" href="#parameters-15"><span class="octicon octicon-link"></span></a>Parameters</h4>
+
+<p><strong>key</strong>:  <em>string</em>,  The key for the data attribute you wish to set</p>
+
+<p><strong>value</strong>:  <em>string</em>,  The value to set for key.</p>
+
+<h4>
+<a name="returns-21" class="anchor" href="#returns-21"><span class="octicon octicon-link"></span></a>Returns</h4>
+
+<p><em>HtmlObject</em>,  Fluent interface</p>
+
+<hr><h4>
+<a name="getdatakey" class="anchor" href="#getdatakey"><span class="octicon octicon-link"></span></a>getData(key)</h4>
+
+<p><em>Convenience method. Get data-something.</em></p>
+
+<h4>
+<a name="parameters-16" class="anchor" href="#parameters-16"><span class="octicon octicon-link"></span></a>Parameters</h4>
+
+<p><strong>key</strong>:  <em>string</em>,  The key for the data attribute you wish to get.</p>
+
+<h4>
+<a name="returns-22" class="anchor" href="#returns-22"><span class="octicon octicon-link"></span></a>Returns</h4>
+
+<p><em>string</em>,  The value of the data attribute.</p>
+
+<hr><h4>
+<a name="datakey-value" class="anchor" href="#datakey-value"><span class="octicon octicon-link"></span></a>data(key, [value])</h4>
+
+<p><em>Convenience method. jQuery-like syntax for data.</em></p>
+
+<h4>
+<a name="parameters-17" class="anchor" href="#parameters-17"><span class="octicon octicon-link"></span></a>Parameters</h4>
+
+<p><strong>key</strong>:  <em>string</em>,  The key for which you wish to get or set the value.</p>
+
+<p><strong>[value]</strong>:  <em>string</em>,  The value to set for key.</p>
+
+<h4>
+<a name="returns-23" class="anchor" href="#returns-23"><span class="octicon octicon-link"></span></a>Returns</h4>
+
+<p><em>HtmlObject|string</em>,  Fluent interface, or data value on get.</p>
+
+<hr><h4>
+<a name="removedatakey" class="anchor" href="#removedatakey"><span class="octicon octicon-link"></span></a>removeData(key)</h4>
+
+<p><em>Convenience method. Remove data-something.</em></p>
+
+<h4>
+<a name="parameters-18" class="anchor" href="#parameters-18"><span class="octicon octicon-link"></span></a>Parameters</h4>
+
+<p><strong>key</strong>:  <em>string</em>,  Remove the data-something value.</p>
+
+<h4>
+<a name="returns-24" class="anchor" href="#returns-24"><span class="octicon octicon-link"></span></a>Returns</h4>
+
+<p><em>HtmlObject</em>,  Fluent interface</p>
+
+<hr><h4>
+<a name="renderchildren" class="anchor" href="#renderchildren"><span class="octicon octicon-link"></span></a>renderChildren()</h4>
+
+<p><em>Render the children for this element.</em></p>
+
+<h4>
+<a name="returns-25" class="anchor" href="#returns-25"><span class="octicon octicon-link"></span></a>Returns</h4>
+
+<p><em>string</em>,  The rendered string.</p>
+
+<hr><h4>
+<a name="addchildchild" class="anchor" href="#addchildchild"><span class="octicon octicon-link"></span></a>addChild(child)</h4>
+
+<p><em>Add a child to this element</em></p>
+
+<h4>
+<a name="parameters-19" class="anchor" href="#parameters-19"><span class="octicon octicon-link"></span></a>Parameters</h4>
+
+<p><strong>child</strong>:  <em>HtmlObject</em>,  The child instance.</p>
+
+<h4>
+<a name="returns-26" class="anchor" href="#returns-26"><span class="octicon octicon-link"></span></a>Returns</h4>
+
+<p><em>HtmlObject</em>,  Fluent interface</p>
+
+<hr><h4>
+<a name="spawnchildtag-attributes" class="anchor" href="#spawnchildtag-attributes"><span class="octicon octicon-link"></span></a>spawnChild([tag], [attributes])</h4>
+
+<p><em>Spawn a new child for this element.</em></p>
+
+<h4>
+<a name="parameters-20" class="anchor" href="#parameters-20"><span class="octicon octicon-link"></span></a>Parameters</h4>
+
+<p><strong>[tag]</strong>:  <em>string</em>,  The tag for the child element.</p>
+
+<p><strong>[attributes]</strong>:  <em>Object</em>,  An object of properties for the child element.</p>
+
+<h4>
+<a name="returns-27" class="anchor" href="#returns-27"><span class="octicon octicon-link"></span></a>Returns</h4>
+
+<p><em>HtmlObject</em>,  Fluent interface} The child element</p>
+
+<hr><h4>
+<a name="render" class="anchor" href="#render"><span class="octicon octicon-link"></span></a>render()</h4>
+
+<p><em>Render this element.</em></p>
+
+<h4>
+<a name="returns-28" class="anchor" href="#returns-28"><span class="octicon octicon-link"></span></a>Returns</h4>
+
+<p><em>string</em>,  The rendered output.</p>
+        </section>
+
+        <footer>
+          Html-object is maintained by <a href="https://github.com/SpoonX">SpoonX</a><br>
+          This page was generated by <a href="http://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
+        </footer>
+
+        
+      </div>
+    </div>
+  </body>
+</html>
