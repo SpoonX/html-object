@@ -471,9 +471,9 @@ HtmlObject.prototype = {
       elementParts.push('>');
 
       return elementParts.join('');
-    } else {
-      elementParts.push('>');
     }
+  
+    elementParts.push('>');
 
     if (this.children.length > 0) {
       body = this.renderChildren();
