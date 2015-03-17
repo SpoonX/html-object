@@ -231,7 +231,7 @@ HtmlObject.prototype = {
   addClasses : function(classes) {
     classes.forEach(function(className) {
       this.addClass(className);
-    });
+    }, this);
 
     return this;
   },
