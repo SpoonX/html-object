@@ -178,7 +178,7 @@ HtmlObject.prototype = {
   addAttributes : function(attributes) {
     Object.getOwnPropertyNames(attributes).forEach(function(attribute) {
       this.setAttribute(attribute, attributes[attribute]);
-    });
+    }, this);
 
     return this;
   },
@@ -472,7 +472,7 @@ HtmlObject.prototype = {
 
       return elementParts.join('');
     }
-  
+
     elementParts.push('>');
 
     if (this.children.length > 0) {
